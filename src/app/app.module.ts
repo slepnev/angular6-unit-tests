@@ -12,8 +12,9 @@ import { VoterComponent } from './integration/1-voter/voter.component';
 import { routes } from './app.routes';
 import { UsersComponent } from './integration/users/users.component';
 // import { NavComponent } from './nav/nav.component';
-import { HighlightDirective } from './integration/highlight.directive';
+import { AppHighlightDirective } from './integration/app-highlight.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './integration/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     VoterComponent,
     UsersComponent,
     // NavComponent,
-    HighlightDirective
+    AppHighlightDirective,
+    NavComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

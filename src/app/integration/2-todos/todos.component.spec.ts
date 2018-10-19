@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { TodosComponent } from './todos.component';
 import { TodoService } from './todo.service';
@@ -47,4 +47,15 @@ describe('TodosComponent', () => {
 
     expect(component.todos.length).toBe(3);
   });
+
+  it('should load todos from the server', fakeAsync(() => {
+    // fixture.debugElement.injector.get(TodoService);
+    spyOn(service, 'getTodosPromise').and.returnValue(Promise.resolve([1, 2, 3]));
+
+    // fixture.detectChanges();
+    component.ngOnInit();
+
+    tick(100);
+    expect(component.todos.length).toBe(3);
+  }));
 });
